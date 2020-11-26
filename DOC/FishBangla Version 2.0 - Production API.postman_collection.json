@@ -1,0 +1,3387 @@
+{
+	"info": {
+		"_postman_id": "2e85072a-61c3-4a4a-8536-d6a0ca1eea4a",
+		"name": "FishBangla Version 2.0 - Production API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "production",
+			"item": [
+				{
+					"name": "banner",
+					"item": [
+						{
+							"name": "banner list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"type": "text",
+										"value": "8800000000000"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "jcbsdcb"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{FISH_BANGLA_TEST}}fbmobile/banner/all",
+									"host": [
+										"{{FISH_BANGLA_TEST}}fbmobile"
+									],
+									"path": [
+										"banner",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "app menu",
+					"item": [
+						{
+							"name": "app menu list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/fbmobile/appMenu/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"appMenu",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "appMenu list isCatg wise",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/appMenu/isCatg",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"appMenu",
+										"isCatg"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "create pin",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"01756442316\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/pin/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"pin",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "8800000000000",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "8800000000000",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"01672001715\",\n    \"userOtpPin\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FISH_BANGLA_TEST}}fbmobile/login",
+									"host": [
+										"{{FISH_BANGLA_TEST}}fbmobile"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgot pin",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"01756442316\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/pin/forgot",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"pin",
+										"forgot"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"11\",\n    \"userEmail\": \"bhowmik.sb9252@gmail.com\",\n    \"userFullName\": \"BAPPI BHOWMIK\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/user/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"user",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user profile",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"15\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/userProfile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"userProfile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change pin",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"11\",\n    \"oldPin\": \"63577\",\n    \"newPin\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/pin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"pin",
+										"change"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seller list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/seller/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"seller",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user image upload",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "userImage",
+											"type": "file",
+											"src": "/C:/Users/HP/Downloads/scooby-shaggy_1111111.jpg"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/userImageUpload/11",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"userImageUpload",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seller filter",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productMenuId\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/seller/filter",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"seller",
+										"filter"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							},
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "product list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "7",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "jdbas",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{FISH_BANGLA_TEST}}/fbmobile/product/all?page=0&size=10",
+									"host": [
+										"{{FISH_BANGLA_TEST}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"all"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product suggestion",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": \"21\",\n    \"productPostType\": \"all\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/suggestion",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"suggestion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product details",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product list by appMenu postType",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"appMenuId\": \"1\",\n    \"postTypeId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/list/appMenuPostType",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"list",
+										"appMenuPostType"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create product",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"userId\":\"8\",\n\t\"productMenuId\":\"10\",\n\t\"postTypeId\":\"1\",\n\t\n\t\"avgWeight\":\"2\",\n\t\"avgWeightUnit\": \"KG\",\n\t\n\t\"unitType\":\"KG\",\n\t\"unitSize\":\"1\",\n\t\"price\":\"750\",\n\t\n\t\"minUnitQty\":\"1\",\n\t\"maxUnitQty\":\"1\",\n\t\n\t\"upazillaId\":\"1\"\n\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"1\",\n    \"productId\": \"1\",\n    \"productMenuId\": \"2\",\n    \"postTypeId\": \"1\",\n    \"upazillaId\": \"2\",\n    \"minUnitQty\": \"5\",\n    \"maxUnitQty\": \"200\",\n    \"unitSize\": \"1\",\n    \"price\": \"230\",\n    \"unitType\": \"KG\",\n    \"avgWeight\": \"1\",\n    \"avgWeightUnit\": \"KG\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seller wise product list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/all/seller",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"all",
+										"seller"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seller's own product list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/activeInactive/all/seller",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"activeInactive",
+										"all",
+										"seller"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product list by seller",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"type": "text",
+										"value": "{{userId}}"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/all/filter/seller?page=0&size=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"all",
+										"filter",
+										"seller"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search product",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productMenuId\": \"7\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/all/filter/productMenu",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"all",
+										"filter",
+										"productMenu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product video upload",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"type": "file",
+											"src": []
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/videoUpload/{id}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"videoUpload",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product image upload",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image1",
+											"type": "file",
+											"src": "/G:/prod_image/prawn/a.jpg"
+										},
+										{
+											"key": "image2",
+											"type": "file",
+											"src": "/G:/prod_image/prawn/b.jpg"
+										},
+										{
+											"key": "image3",
+											"type": "file",
+											"src": "/G:/prod_image/prawn/c.jpg"
+										},
+										{
+											"key": "image4",
+											"type": "file",
+											"src": "/G:/8.jpg"
+										},
+										{
+											"key": "image5",
+											"type": "file",
+											"src": "/G:/9.jpg"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/imageUpload/30",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"imageUpload",
+										"30"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product token update",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productId\":\"4\",\n\t\"productToken\":\"INACTIVE\",\n\t\"userId\":\"11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/tokenUpdate",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"tokenUpdate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "filter through all",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"minPriceRange\": \"\",\n    \"maxPriceRange\": \"\",\n    \"minAvgWeight\": \"\",\n    \"maxAvgWeight\": \"\",\n    \"productMenuId\": \"10\",\n    \"appMenuId\": \"\",\n    \"divisionId\": \"\",\n    \"postTypeId\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/filter/throughAll",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"filter",
+										"throughAll"
+									]
+								},
+								"description": "This will filter now through price range, avg weight range, product menu id and app menu id."
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							},
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "address",
+					"item": [
+						{
+							"name": "list of division district upazilla",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "User-Agent",
+										"value": "Android",
+										"type": "text"
+									},
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/divlist",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"divlist"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add address",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"11\",\n    \"upazillaId\": \"5\",\n    \"receiverName\": \"GK\",\n    \"receiverPhone\": \"01675025694\",\n    \"userAddress\": \"232/G\",\n    \"roadNo\": \"Road 11\",\n    \"buildingNo\": \"Building 11\",\n    \"flatNo\": \"Flat 11\",\n    \"userVillage\": \"Bitulia\",\n    \"isPrimary\": \"YES\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/address/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"address",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user address list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"9\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/address/all/filter/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"address",
+										"all",
+										"filter",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update address",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"addressId\": \"10\",\n    \"userId\": \"9\",\n    \"upazillaId\": \"4\",\n    \"receiverName\": \"Bappi\",\n    \"receiverPhone\": \"01675025694\",\n    \"userAddress\": \"232/G\",\n    \"roadNo\": \"Road 11\",\n    \"buildingNo\": \"Building 11\",\n    \"flatNo\": \"Flat 11\",\n    \"userVillage\": \"Bitulia\",\n    \"isPrimary\": \"YES\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/address/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"address",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete address",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"addressId\": \"7\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/address/delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"address",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "productMenu",
+					"item": [
+						{
+							"name": "list of product menu",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/productMenu/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"productMenu",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "productMenu list appMenu wise",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"appMenuId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/productMenu/appMenuWise/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"productMenu",
+										"appMenuWise",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "refer",
+					"item": [
+						{
+							"name": "get agent refer",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"01756442316\",\n    \"userId\": \"2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/agent/refer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"agent",
+										"refer"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "order create",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"totalAmount\": \"6712.4\",\n    \"serviceCharge\": \"10.0\",\n    \"productVat\": \"608.40\",\n    \"deliveryCharge\": \"10.0\",\n    \"discountAmount\": \"0.0\",\n    \"totalAfterDiscount\": \"6712.4\",\n    \"subtotal\": \"6084.0\",\n    \"discountId\": \"0\",\n    \"paymentTypeId\": \"1\",\n    \"transactionId\": \"24610\",\n    \"iceQty\": \"3\",\n    \"icePrice\": \"4343\",\n    \"products\": [\n        {\n            \"productId\": \"2\",\n            \"orderQuantity\": \"3\"\n        },\n        {\n            \"productId\": \"1\",\n            \"orderQuantity\": \"4\"\n        }\n    ],\n    \"address\": {\n        \"upazillaId\": \"5\",\n        \"receiverName\": \"Apu\",\n        \"receiverPhone\": \"01772141673\",\n        \"userAddress\": \"232/G\",\n        \"roadNo\": \"Road 11\",\n        \"buildingNo\": \"Building 11\",\n        \"flatNo\": \"Flat 11\",\n        \"userVillage\": \"Bitulia\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}fbmobile/order/create",
+									"host": [
+										"{{url}}fbmobile"
+									],
+									"path": [
+										"order",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "order history buy",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/order/history/buy",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"order",
+										"history",
+										"buy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "order history sell",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"1\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/order/history/sell",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"order",
+										"history",
+										"sell"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "discount",
+					"item": [
+						{
+							"name": "discount mobile",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"discountKeyword\": \"NEW_YEAR\",\n    \"userId\": \"2\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/discount",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"discount"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "rating",
+					"item": [
+						{
+							"name": "create rating",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"productId\": \"45\",\n        \"postRating\": \"4\",\n        \"postRemark\": \"Nice fish\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/rating/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"rating",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "user request",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"8\",\n    \"userIssueId\": \"1\",\n    \"userMessage\": \"It's OK\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/userRequest/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"userRequest",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user issue list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/userIssue/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"userIssue",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "config",
+					"item": [
+						{
+							"name": "get configs",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/getConfigs",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"getConfigs"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "app notice",
+					"item": [
+						{
+							"name": "all app notice",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/appNotice/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"appNotice",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "auction",
+					"item": [
+						{
+							"name": "add bid",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"25\",\n    \"productId\":\"8\",\n    \"bidAmount\":\"125\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user}}/fbmobile/create/bid",
+									"host": [
+										"{{user}}"
+									],
+									"path": [
+										"fbmobile",
+										"create",
+										"bid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auction product details",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productId\":\"11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/auction/product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"auction",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auction product list",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/fbmobile/auction/product/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"auction",
+										"product",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "users follower",
+					"item": [
+						{
+							"name": "follow",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"userId\":\"11\",\n\t\"followerId\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/follow",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"follow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unfollow",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"userId\":\"11\",\n\t\"followerId\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/unfollow",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"unfollow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get followers",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"userId\":\"11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/getFollowers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"getFollowers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get followees",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"followerId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/getFollowees",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"getFollowees"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "notification",
+					"item": [
+						{
+							"name": "all profile notification",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"type": "text",
+										"value": "{{userId}}"
+									},
+									{
+										"key": "token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/profile/notification/all?page=0&size=100",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"profile",
+										"notification",
+										"all"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile notification",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"notificationId\":\"1\",\n\t\"updateStatus\":\"READ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/profile/notification/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"profile",
+										"notification",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eb4ae0cf-e8a8-45cc-b913-18b45e7ce721",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "138e22ce-33f6-45b9-bfbe-a360997b1433",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "favourite",
+					"item": [
+						{
+							"name": "add favourite",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": \"1\",\n    \"isFavourite\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/favourite/add",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"favourite",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all favourites",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/fbmobile/favourite/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"favourite",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tags",
+					"item": [
+						{
+							"name": "find products tag wise",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/tagWise?page=0&size=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"tagWise"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "individual tag wise products",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tagId\":\"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/product/tag?page=1&size=5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"product",
+										"tag"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "Gtechfbv2",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "Gtech",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "firebase short link",
+					"item": [
+						{
+							"name": "for ui",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "usersId",
+										"value": "{{userId}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"metadata\": \"PRODUCT_DETAILS-24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/fbmobile/fdl/sl/ui",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"fbmobile",
+										"fdl",
+										"sl",
+										"ui"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "Gtech",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "Gtechfbv2",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

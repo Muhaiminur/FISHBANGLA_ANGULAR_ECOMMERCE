@@ -1,0 +1,17 @@
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.fp-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.fp-full-width {
+    width: 100%;
+    text-align: center;
+}

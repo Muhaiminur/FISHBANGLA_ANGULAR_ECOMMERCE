@@ -1,0 +1,25 @@
+<fieldset>
+    <div style="text-align:center;">
+        <!-- this is for dropdown for filter fish -->
+        <mat-form-field class="center">
+            <mat-select name="countryVaraible" [(value)]="selected_product" placeholder="মাছ খুঁজছেন?"
+                (selectionChange)="seller_filter_drop()">
+                <mat-option *ngFor=" let product of product_name" [value]="product.productMenuId">
+                    {{product.productName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <hr>
+    </div>
+    <div *ngIf="!nodata" class="center">
+        <div class="card" *ngFor=" let product of product_list">
+            <app-fishproduct [productdata]="product"></app-fishproduct>
+        </div>
+    </div>
+    <!-- show if no product found -->
+    <mat-card *ngIf="nodata">
+        <div style="text-align:center;">
+            <h2>কোনো বিক্রেতা খুঁজে পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+</fieldset>

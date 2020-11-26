@@ -1,0 +1,55 @@
+<fieldset>
+    <div style="text-align:center;">
+        <!-- this is for input for filter name -->
+        <mat-form-field appearance="fill" class="center">
+            <mat-label>বিক্রেতার নাম</mat-label>
+            <input matInput #sellername_input (keyup)="updatesellername(sellername_input.value)">
+        </mat-form-field>
+        <hr>
+        <!-- this is for dropdown for filter fish -->
+        <mat-form-field class="center">
+            <mat-select name="countryVaraible" [(value)]="selected_product" placeholder="মাছ খুঁজছেন?"
+                (selectionChange)="seller_filter_drop()">
+                <mat-option *ngFor=" let product of product_name" [value]="product.productMenuId">
+                    {{product.productName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <hr>
+    </div>
+    <!-- this is for seller list -->
+    <mat-card *ngFor=" let seller of seller_lists; let i = index;" (click)=seller_details_page(seller)>
+        <div id="boxes">
+            <div id="leftbox">
+                <img *ngIf="seller.userImage.length!==0" [src]="seller.userImage" [alt]="seller.userFullName"
+                    width="150" height="150" align="left">
+                <img *ngIf="seller.userImage.length==0" src="../../assets/images/red-logo.svg"
+                    [alt]="seller.userFullName" width="150" height="150" align="left">
+            </div>
+            <div id="middlebox">
+                <h2>{{"বিক্রেতার নাম: "+seller.userFullName}}</h2>
+                <h4>{{"রেটিং: "+seller.sellerRating+"/5.00"}}</h4>
+                <h4>{{seller.totalRating+" রিভিউ"}}</h4>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                            <li [ngClass]="{'selected': (star <= seller.sellerRating)}">
+                                <i class="fa fa-star"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h4>{{"মোবাইল: "+seller.userPhoneNo}}</h4>
+            </div>
+        </div>
+        <hr>
+    </mat-card>
+    <!-- show if no seller found -->
+    <mat-card *ngIf="nodata">
+        <div style="text-align:center;">
+            <h2>কোনো বিক্রেতা খুঁজে পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+</fieldset>
+
+<!-- <pre>{{ response | json }}</pre> -->

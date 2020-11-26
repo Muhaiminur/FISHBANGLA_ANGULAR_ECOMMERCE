@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.cart_card {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.center {
+    margin: auto;
+    width: 90%;
+    border: 3px;
+    padding: 10px;
+    margin-bottom: 5px; 
+    
+  }

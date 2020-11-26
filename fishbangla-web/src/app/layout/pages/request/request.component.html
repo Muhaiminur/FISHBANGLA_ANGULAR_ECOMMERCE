@@ -1,0 +1,29 @@
+<mat-card class="center">
+  <fieldset>
+    <div style="text-align:center;">
+      <mat-form-field class="center">
+        <!-- <mat-label>আবেদন এর ধরণ</mat-label> -->
+        <mat-select name="countryVaraible" [(value)]="selected_issue" placeholder="আবেদন এর ধরণ"
+          [formControl]="selected_issue_warning" required>
+          <mat-option *ngFor="let issue of issue_list" [value]="issue.userIssueId">{{issue.userIssueTitle}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="selected_issue_warning.invalid">সব তথ্য পূরণ করুন</mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+
+      <mat-form-field appearance="fill" class="center">
+        <mat-label>আপনার বার্তাসমূহ লিখুন</mat-label>
+        <textarea matInput [formControl]="issue_message" required #issue_input></textarea>
+        <mat-error *ngIf="issue_message.invalid">সব তথ্য পূরণ করুন</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div style="text-align:center;">
+      <button mat-raised-button color="warn" type="submit" (click)="send_issue(issue_input.value)">জমা দিন</button>
+    </div>
+
+    <!-- <h1>{{ selected_issue }}</h1>
+  <pre>{{ response | json }}</pre> -->
+  </fieldset>
+</mat-card>

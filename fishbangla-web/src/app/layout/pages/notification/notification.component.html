@@ -1,0 +1,26 @@
+
+<fieldset style="text-align:right;">
+    <button mat-raised-button color= "primary" (click) = update_all_notification() > সবগুলোকে পঠিত হিসেবে চিহ্নিত করুন </button>
+</fieldset>
+
+<fieldset *ngFor = "let notif of notification_list; let i = index ;" >
+    <mat-expansion-panel *ngIf = "notif.readStatus == 'YES'"   >
+        <mat-expansion-panel-header   >
+            {{ notif.title }}
+        </mat-expansion-panel-header>
+          <p routerLink="/logout" >{{ notif.body }}</p>
+          <div style="text-align: right;" >
+            <button mat-raised-button color= "warn" (click)= delete_notification(i) > মুছে ফেলুন </button>
+          </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf = "notif.readStatus == 'NO'" style="background-color: lightgray;" >
+      <mat-expansion-panel-header  >
+          {{ notif.title }}
+      </mat-expansion-panel-header>
+        <p routerLink="/logout" >{{ notif.body }}</p>
+        <div style="text-align: right;" >
+          <button mat-raised-button color = "primary" (click) = update_notification(i) > পঠিত হিসেবে চিহ্নিত করুন </button>
+          <button mat-raised-button color= "warn" (click)= delete_notification(i) > মুছে ফেলুন </button>
+        </div>
+  </mat-expansion-panel>
+</fieldset>

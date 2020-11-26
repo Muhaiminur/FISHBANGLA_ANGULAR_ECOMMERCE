@@ -1,0 +1,44 @@
+divimage{
+    max-width: 25%;
+    float: left;
+}
+#leftbox { 
+    float:left;
+    width:50%; 
+    text-align: left;
+} 
+#rightbox{ 
+    float: right;
+    width:50%; 
+}
+.rating-list li {
+  float: right;
+  color: #ddd;
+
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li, .rating-list li.selected {
+  color: #ff0e0e;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+}
+
+.pending {
+  color: #ff8800;
+  font-size:18px;
+  text-align: end;
+}
+.cancelled {
+  color: #ff0e0e;
+  font-size:18px;
+  text-align: end;
+}
+.approved {
+  color: #339f2b;
+  font-size:18px;
+  text-align: end;
+}

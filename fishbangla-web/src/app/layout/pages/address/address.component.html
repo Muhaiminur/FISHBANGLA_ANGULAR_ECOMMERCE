@@ -1,0 +1,37 @@
+<fieldset>
+    <fieldset style="text-align: center;">
+        <button mat-raised-button color = "warn" style="text-align: center;" (click) = "edit_button_clicked(null)"  routerLink="/add-address" > নতুন ঠিকানা যোগ করুন </button>
+    </fieldset>
+    
+    <fieldset *ngFor = "let address of address_list; let i = index ;"> 
+        <mat-card class="container" >
+            <div id = "leftbox">
+                <img src="../../assets/images/red-logo.svg"  width="50" height="50" align="left">
+            </div>
+            <div id = "middlebox" >
+                {{ address.userVillage }} <br>
+                {{ address.receiverName }} <br>
+                {{ address.receiverPhone }}<br>
+                রাস্তা/ ব্লক নং - {{ address.roadNo }}<br>
+                এপার্টমেন্ট নং - {{address.flatNo }} বিল্ডিং নং - {{ address.buildingNo }}
+            </div> 
+
+            <div id = "rightbox" >
+                <button mat-button area-label="Edit" (click) = "edit_button_clicked(address)" routerLink="/add-address" >
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>Edit
+                </button>
+                <button mat-button area-label="Delete" (click) = "deleteAddress(address.addressId)" routerLink="/address">
+                    <mat-icon svgIcon="buy-history"></mat-icon> 
+                    <br>Delete
+                </button>
+            </div>
+            
+        </mat-card>
+    </fieldset>
+
+</fieldset>
+
+
+
+<!-- <pre>{{ response | json }}</pre> -->

@@ -1,0 +1,201 @@
+
+<fieldset *ngIf = "cartItems.length != 0" >
+    <fieldset class="center" *ngFor= "let item of cartItems;">
+        <div>
+            <mat-card style="overflow:hidden;" >
+                <div style="float: left; margin: 5%">
+                    <img *ngIf="item.productPicture[0].length!==0" [src]="item?.productPicture[0]?.image"
+                [alt]="item?.productName" width="170" height="150" align="center">
+                </div>
+            <div style="float: left;margin: 2%">
+                <p>{{ item.productName }}</p>
+                <p>{{"পণ্যের দাম : "+ item?.price +" টাকা"+" / "}}{{item?.unitSize+" "+ unit_check(item?.unitType)}}</p>
+                <p style="color:#b7b7b7;font-size:16px;">{{"সর্বনিম্ম ক্রয় : "+item?.minUnitQty +" ইউনিট"}}</p>
+                <p style="color:#339f2b;font-size:16px;margin-top: 10px;">
+                    {{"বিক্রেতা : "+item?.userFullName+" | "+item?.upazillaName+" | "+item?.districtName+" | "+item?.divisionName}}
+                </p>
+                <p style="color:#ff0e0e;font-size:26px; margin-top: 10px;">{{item?.totalPrice +" টাকা"}}</p>
+            </div>
+            <div style="float: left; margin: 2%">
+                <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                    <div (click)="unit_minus(item)"><img src="../../assets/icons/ic_minus.svg"
+                            style="width: 25px;height: 25px;margin-top: 10px; margin-right: 10px;"></div>
+                    <div>
+                        <p style="color:#ff0e0e;font-size:26px;">{{item?.orderQuantity}}</p>
+                        <p style="color:#ff0e0e;font-size:26px;">ইউনিট</p>
+                    </div>
+                    <div (click)="unit_add(item)"><img src="../../assets/icons/ic_plus.svg"
+                            style="width: 25px;height: 25px;margin-top: 10px;margin-left: 10px;"></div>  
+                </div>
+            </div>
+
+            <div style="float: left; margin: 2%">
+                <div><img (click)="delete(item)" src="../../assets/images/delete_img.png"
+                    style="width: 25px;height: 25px;margin-top: 10px;margin-left: 10px;"></div>
+            </div>
+            
+            
+            </mat-card>
+        </div>
+    </fieldset>
+    <mat-card class="center">
+        <div style="overflow:hidden;">
+            <div style="float: left;margin-left: 35%; margin-top: 5px;">
+                <p>মাছের দাম </p>
+                <p>বরফ পাটা </p>
+                <p>সার্ভিস চার্জ  </p>
+                <p>ডেলিভারি চার্জ  </p>
+                <p>ভ্যাট  </p>
+                <p>ডিসকাউন্ট </p>
+                <p style="color: red;" >সর্বমোট </p>
+            </div>
+
+            <div style="float: left; margin:1%;">
+                <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                    <div ><img (click) = "iceRemove()" src="../../assets/icons/ic_minus.svg"
+                            style="width: 16px;height: 16px;margin-top: 10px; margin-right: 10px;"  ></div>
+                    <div>
+                        <p style="color:#ff0e0e;font-size:16px;">{{ iceQty }}</p>
+                    </div>
+                    <div><img (click)="iceAdd()" src="../../assets/icons/ic_plus.svg"
+                            style="width: 16px;height: 16px;margin-top: 10px;margin-left: 10px;"></div>  
+                </div>
+            </div>
+
+            <div style="float: left; margin-top: 5px;">
+                <p>{{subtotal}} টাকা </p>
+                <p>{{ icePrice }} টাকা </p>
+                <p>{{ serviceCharge }}  টাকা </p>
+                <p> {{ deliveryCharge }} টাকা </p>
+                <p>{{ totalVat }} টাকা </p>
+                <p>{{ discount }} টাকা </p>
+                <p style="color:red;"> {{ amountToPay }} টাকা</p> 
+            </div>
+        </div>
+        
+    </mat-card>
+    <mat-card class="center" *ngIf = "login_id != null" >
+        <p style="color: red; text-align: center;" > আপনার ঠিকানা: </p>
+        <drag-scroll
+        style="display: flex;text-align: center; width:90vw; overflow-x: scroll; white-space: normal; scroll-behavior: smooth;">
+        <div drag-scroll-item *ngFor="let address of address_list;" style="display: inline-block;margin-right: 10px;margin-top: 5px;">  <!-- (click)="fish_menu(menu)"> --> 
+            <div routerLink="/address" style="position: relative;width: 400px;height: 200px;overflow: hidden;color: black ;border-radius: 10px; border-width: 2px; border-color: red; text-align: left;">
+                <mat-card *ngIf = "address.isPrimary == 'YES'" style="background-color: lightgray;" >
+                    <p>{{ address.userVillage }} </p> 
+                    <p> {{ address.receiverName }}  </p>
+                    <p>{{ address.receiverPhone }}</p>
+                    <p>রাস্তা/ ব্লক নং - {{ address.roadNo }}</p>
+                    <p>এপার্টমেন্ট নং - {{address.flatNo }} বিল্ডিং নং - {{ address.buildingNo }}</p>
+                </mat-card>
+
+                <mat-card *ngIf = "address.isPrimary == 'NO'" style="background-color: white;" >
+                    <p>{{ address.userVillage }} </p> 
+                    <p> {{ address.receiverName }}  </p>
+                    <p>{{ address.receiverPhone }}</p>
+                    <p>রাস্তা/ ব্লক নং - {{ address.roadNo }}</p>
+                    <p>এপার্টমেন্ট নং - {{address.flatNo }} বিল্ডিং নং - {{ address.buildingNo }}</p>
+                </mat-card>
+            </div> 
+        </div>
+        </drag-scroll>
+    </mat-card>
+        
+    <mat-card  class="center" *ngIf = "login_id == null" >
+        <!-- dd new address a -->
+        <div style="text-align: center;">
+            <p style="color: red; text-align: center;" > আপনার ঠিকানা দিন  </p>
+            <div>
+                <mat-form-field style="width: 33%; margin: 5px;" >
+                    <mat-label>বাসা নং : </mat-label>
+                    <input [(ngModel)]="buildingNo" matInput placeholder="বাসা নং :" value="">
+                  </mat-form-field>        
+                  <mat-form-field style="width: 33%; margin: 5px;" >
+                      <mat-label>এপার্টমেন্ট নং/ফ্লোর নং : </mat-label>
+                      <input [(ngModel)]="flatNo" matInput placeholder="এপার্টমেন্ট নং/ফ্লোর নং :" value="">
+                </mat-form-field>   
+                
+                <mat-form-field style="width: 33%; margin: 5px;" >
+                        <mat-label>রাস্তা / ব্লক/ সেক্ট্রর নং :</mat-label>
+                        <input [(ngModel)] = "roadNo" matInput placeholder="রাস্তা / ব্লক/ সেক্ট্রর নং :" value="">
+                </mat-form-field>
+                
+                <mat-form-field style="width: 33%; margin: 5px;" >
+                        <mat-label>এলাকা : </mat-label>
+                        <input [(ngModel)] = "userAddress"  matInput placeholder="এলাকা :" value="">
+                      </mat-form-field>
+                  
+                      <mat-form-field style="width: 33%; margin: 5px;" >
+                          <mat-label>ক্রেতা /বিক্রেতার নাম: </mat-label>
+                          <input [(ngModel)] = "receiverName" matInput placeholder="ক্রেতা /বিক্রেতার নাম: " value="">
+                      </mat-form-field>
+                  
+                      <mat-form-field style="width: 33%; margin: 5px;" >
+                          <mat-label>মোবাইল নং :</mat-label>
+                          <input [(ngModel)] = "receiverNo" onkeyup="this.value=this.value.replace(/[^\d]/,'')"  matInput placeholder="মোবাইল নং:" value="" required>
+                </mat-form-field>
+            </div>
+            <div>
+
+                <mat-form-field style="width: 33%; margin: 5px;" >
+                    <mat-label>বিভাগ নির্বাচন করুন</mat-label>
+                    <mat-select [(value)]="selectedDivId" (selectionChange)="divison_select($event)" >
+                      <mat-option *ngFor = "let div of divList?.division ; let i = index;" [value]="div.divisionId" >
+                        {{div.divisionName}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field style="width: 33%; margin: 5px;" >
+                    <mat-label>জেলা নির্বাচন করুন</mat-label>
+                    <mat-select [(value)]="selectedDistId" (selectionChange)="district_select($event)" >
+                      <mat-option *ngFor = "let dist of selectedDistList ; let i = index;" [value]="dist.districtId" >
+                        {{dist.districtName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+    
+                  <mat-form-field style="width: 33%; margin: 5px;" >
+                    <mat-label>উপজেলা নির্বাচন করুন</mat-label>
+                    <mat-select [(value)]="selectedUpaId" >
+                      <mat-option *ngFor = "let ps of selectedUpaList; let i = index;" [value]="ps.upazillaId">
+                        {{ps.upazillaName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+            
+            </div>
+        </div>
+    </mat-card>
+
+    <mat-card class="center" style="text-align: center;" >
+        <mat-form-field appearance="fill" >
+            <mat-label>ডিসকাউন্ট কোড লিখুন </mat-label>
+            <input [(ngModel)]="discountString" matInput placeholder="ডিসকাউন্ট কোড লিখুন" value="">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color = "warn"  (click)= "get_discount(discountString)" >জমা দিন </button>
+    </mat-card>
+    <mat-card class="center" style="text-align: center;"  > 
+        <mat-radio-group aria-label="Payment Method" [(ngModel)]="paymentTypeId" >
+            <mat-radio-button style="margin-right: 10px;" value="1">নগদ লেনদেন </mat-radio-button>
+        
+            <mat-radio-button value="10">অনলাইন পেমেন্ট</mat-radio-button>
+        </mat-radio-group>
+        
+    </mat-card>
+
+    <fieldset style="text-align: center;">
+        <button mat-raised-button color = "warn" style="text-align: center;" (click)="placeOrder()" > আপনার বাজার নিশ্চিত করুন </button>
+    </fieldset>
+
+</fieldset>
+
+<fieldset  *ngIf = "cartItems.length == 0" >
+    <p style="text-align: center;color:red"> বাজারের ব্যাগে পণ্য যোগ করুন  </p>
+</fieldset>
+
+
+
+
+<!-- <pre>{{ response | json }}</pre> -->

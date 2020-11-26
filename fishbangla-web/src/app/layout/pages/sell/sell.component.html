@@ -1,0 +1,190 @@
+<!-- <div>
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <p style="color: darkblue; font-size: large;">App Menu Create</p>
+    
+    
+    
+    
+    <div style="margin-top: 20px; margin-bottom: 20px; ">
+    <span style="margin-right: 10px; font-size: 14px;">Image : </span>
+    <input type="file" formControlName="image" accept="image/*" (change)="onFileChanged($event)" />
+    </div>
+    <img [src]="url" *ngIf="url" height="200" width="200" /> -->
+    <!-- <div style="margin-top: 25px;">
+    <label>
+    <p style="color:#222222;font-size:22px;">ছবি যোগ করুন</p>
+    <img src="../../assets/icons/ic_image_upload.svg"
+    style="width: 75px;height: 75px;margin-top: 10px;margin-left: 10px;">
+    <input type='file' id='image' style='display:none;' accept="image/*" multiple
+    (change)="onimageChanged($event)">
+    </label>
+    <br>
+    <img *ngFor='let url of image_array' [src]="url" height="150" width="200px" style="margin: 3px;"> <br>
+    </div>
+    
+    <button style="margin-top: 20px;" class="full-width-input" mat-raised-button color="primary"
+    type="submit">Save</button>
+    </form>
+    
+    </div> --> 
+    <form #sellForm="ngForm">
+        <br>
+        <fieldset>
+            <div style="text-align:center;">
+                <!-- this is for dropdown for select fish type-->
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-select [formControl]="productMenuId_warning" placeholder="পণ্যের ধরণ নির্বাচন করুন"
+                        (selectionChange)="category_select($event)" required>
+                        <mat-option *ngFor=" let product of product_category" [value]="product.appMenuId">
+                            {{product.appMenuTitle}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productMenuId_warning.hasError('required')">পণ্যের ধরণ নির্বাচন করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for dropdown for select fish name-->
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-select [formControl]="productMenuId_warning" [(value)]="productMenuId"
+                        placeholder="পণ্য নির্বাচন করুন" required>
+                        <mat-option *ngFor=" let product of product_name" [value]="product.productMenuId">
+                            {{product.productName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productMenuId_warning.hasError('required')">পণ্য নির্বাচন করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for avrg weight and type-->
+                <div>
+                    <mat-form-field appearance="fill" style="width: 70%;">
+                        <mat-label>পণ্যের গড় ওজন</mat-label>
+                        <input matInput [formControl]="issue_message" [(ngModel)]="avgWeight"
+                            onkeyup="this.value=this.value.replace(/[^\d]/,'')" required>
+                        <mat-error *ngIf="issue_message.invalid">গড় ওজন পূরণ করুন</mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%;" appearance="fill">
+                        <mat-select [formControl]="unit_warning" [(ngModel)]="avgWeightUnit" required>
+                            <mat-option value="GRAM">গ্রাম</mat-option>
+                            <mat-option value="KG">কেজি</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!-- this is for unit weight and type-->
+                <div>
+                    <mat-form-field appearance="fill" style="width: 70%;">
+                        <mat-label>প্রতি ইউনিট পরিমান</mat-label>
+                        <input matInput [formControl]="issue_message" [(ngModel)]="unitSize"
+                            onkeyup="this.value=this.value.replace(/[^\d]/,'')" required>
+                        <mat-error *ngIf="issue_message.invalid">ইউনিট পরিমান পূরণ করুন</mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%;" appearance="fill">
+                        <mat-select [formControl]="unit_warning" [(ngModel)]="unitType" required>
+                            <mat-option value="GRAM">গ্রাম</mat-option>
+                            <mat-option value="KG">কেজি</mat-option>
+                            <mat-option value="PIECE">পিস</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!-- this is for price-->
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <mat-label>প্রতি ইউনিট পণ্যের দাম</mat-label>
+                    <input matInput [formControl]="issue_message" [(ngModel)]="price"
+                        onkeyup="this.value=this.value.replace(/[^\d]/,'')" required>
+                    <mat-error *ngIf="issue_message.invalid">পণ্যের দাম পূরণ করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for total unit-->
+                <div style="display:flex; flex-direction: row;">
+                    <mat-form-field appearance="fill" style="width: 70%;">
+                        <mat-label>সর্বমোট পণ্যের পরিমান</mat-label>
+                        <input matInput [formControl]="issue_message" [(ngModel)]="maxUnitQty"
+                            onkeyup="this.value=this.value.replace(/[^\d]/,'')" required>
+                        <mat-error *ngIf="issue_message.invalid">সর্বমোট পরিমান পূরণ করুন</mat-error>
+                    </mat-form-field>
+                    <p style="width: 30%;color:#b7b7b7;font-size:18px;"></p>
+                </div>
+                <!-- this is for sell type-->
+                <div style="display:flex; flex-direction: row;">
+                    <p style="color:#b7b7b7;font-size:18px;">বিক্রয় ধরন : </p>
+                    <mat-radio-group [formControl]="postype_warning" [(ngModel)]="posttypeId" required>
+                        <mat-radio-button color="warn" value="1" style="margin-left: 5px;">খুচরা</mat-radio-button>
+                        <mat-radio-button color="warn" value="2" style="margin-left: 5px;">পাইকারী</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div *ngIf="posttypeId=='2'"
+                    style="margin-top: 10px;margin-bottom: 10px;border-style: ridge; text-align: center;padding: 5px;">
+                    <p style="color:#222222;font-size:18px;">পাইকারি দরে সর্বনিম্ন কত ইউনিট পণ্য বিক্রি করবেন</p>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <div (click)="unit_minus()"><img src="../../assets/icons/ic_minus.svg"
+                                style="width: 25px;height: 25px;margin-top: 10px; margin-right: 10px;"></div>
+                        <div
+                            style="margin-top: 10px;margin-bottom: 10px;border-style: ridge; text-align: center;padding: 5px;">
+                            <p style="color:#ff0e0e;font-size:26px;padding: 5px;">{{minUnitQty}}</p>
+                        </div>
+                        <div (click)="unit_add()"><img src="../../assets/icons/ic_plus.svg"
+                                style="width: 25px;height: 25px;margin-top: 10px;margin-left: 10px;"></div>
+                    </div>
+                    <p style="color:#222222;font-size:26px; margin-top: 10px;">{{total_unit +" "+total_unit_txt}}</p>
+                </div>
+                <!-- this is for dropdown for division -->
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-select [formControl]="productMenuId_warning" placeholder="বিভাগ নির্বাচন করুন"
+                        (selectionChange)="divison_select($event)" required>
+                        <mat-option *ngFor=" let divi of div_list" [value]="divi.divisionId">
+                            {{divi.divisionName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productMenuId_warning.hasError('required')">বিভাগ নির্বাচন করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for dropdown for select zilla -->
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-select [formControl]="productMenuId_warning" placeholder="জেলা নির্বাচন করুন"
+                        (selectionChange)="zilla_select($event)" required>
+                        <mat-option *ngFor=" let zilla of zilla_list" [value]="zilla.districtId">
+                            {{zilla.districtName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productMenuId_warning.hasError('required')">জেলা নির্বাচন করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for dropdown for select upazilla -->
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-select [formControl]="productMenuId_warning" [(value)]="upazillaId"
+                        placeholder="উপজেলা নির্বাচন করুন" (selectionChange)="upazilla_select($event)" required>
+                        <mat-option *ngFor=" let upazilla of upazilla_list" [value]="upazilla.upazillaId">
+                            {{upazilla.upazillaName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productMenuId_warning.hasError('required')">উপজেলা নির্বাচন করুন</mat-error>
+                </mat-form-field>
+                <!-- this is for selcect Image -->
+                <div style="margin-top: 25px;">
+                    <label>
+                        <p style="color:#222222;font-size:22px;">ছবি যোগ করুন</p>
+                        <img src="../../assets/icons/ic_image_upload.svg"
+                            style="width: 75px;height: 75px;margin-top: 10px;margin-left: 10px;">
+                        <input type='file' id='image' style='display:none;' accept="image/*" multiple
+                            (change)="onimageChanged($event)">
+                    </label>
+                    <br>
+                    <img *ngFor='let url of image_array' [src]="url" height="150" width="200px" style="margin: 3px;"> <br>
+                </div>
+                <mat-divider style="margin-top: 25px;"></mat-divider>
+                <div style="margin-top: 25px;">
+                    <label>
+                        <p style="color:#222222;font-size:22px;">ভিডিও যোগ করুন</p>
+                        <img src="../../assets/icons/ic_video_upload.svg"
+                            style="width: 75px;height: 75px;margin-top: 10px;margin-left: 10px;">
+                        <input type='file' style='display:none;' accept="video/*" (change)="onvideoChanged($event)">
+                    </label>
+                    <br>
+                    <img [src]="video_url" *ngIf="video_url" height="150" width="200px" style="margin: 3px;"> <br>
+                </div>
+                <!-- this is for selcect Video -->
+                <mat-divider style="margin-top: 25px;"></mat-divider>
+                <div style="margin-top: 25px;">
+                    <button mat-raised-button color="warn" type="submit" style="padding-left: 50px;padding-right: 50px;"
+                        (click)="create_product()">জমা
+                        দিন</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    

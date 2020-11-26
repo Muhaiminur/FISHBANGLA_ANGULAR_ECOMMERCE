@@ -1,0 +1,88 @@
+<fieldset>
+    <mat-tab-group mat-align-tabs="center" 
+        [dynamicHeight]="true" 
+        [selectedIndex]=[(matTabIndex)] 
+        (selectedTabChange)="newMatIndex($event)">
+
+        <mat-tab label="লগইন">
+            <div style="text-align: center">
+                <div style="margin: 1%;">
+                    অনুগ্রহ করে আপনার মোবাইল ও পূর্বের ব্যবহৃত পিন নম্বরটি প্রদান করুন।
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()" novalidate>
+                <p>
+                    <mat-form-field appearance="outline" class="mobile-full-width">
+                        <mat-label>মোবাইল নম্বর</mat-label>
+                        <input matInput 
+                            type="tel" 
+                            name="userPhone"
+                            [formControl]="mobileFormControl" 
+                            placeholder="উদাহরণঃ ০১৯১৩৩১১২২২">
+                        <mat-hint>আপনার রেজিস্ট্রকত মোবাইল নম্বর, উদাহরণ ০১X XXXX XXXX</mat-hint>
+                        <mat-error *ngIf="mobileFormControl.hasError('pattern') && !mobileFormControl.hasError('required')">
+                            অনুগ্রহ করে সঠিক মোবাইল নম্বরটি দিন
+                        </mat-error>
+                        <mat-error *ngIf="mobileFormControl.hasError('required')">
+                            মোবাইল নম্বর <strong>আবশ্যক</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="mobile-full-width">
+                        <mat-label>পিন নম্বর</mat-label>
+                        <input matInput 
+                            [type]="hide ? 'password' : 'text'"
+                            name="userOtpPin"
+                            [formControl]="pinFormControl" 
+                            placeholder="উদাহরণঃ ১১২২২">
+                        <button mat-icon-button matSuffix 
+                            type="button"
+                            (click)="hide = !hide" 
+                            [attr.aria-label]="'Hide password'" 
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-hint>বর্তমানে ব্যবহৃত পাঁচ ডিজিটের পিন</mat-hint>
+                        <mat-error *ngIf="pinFormControl.hasError('required')">
+                            পিন নম্বর <strong>আবশ্যক</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button type="submit">জমা দিন</button>
+                </p>    
+                </form>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="রেজিস্টার/নতুন পাসওয়ার্ড" class="mobile-full-width">
+            <div style="text-align: center;">
+                <div style="margin: 1%;">
+                    বিদ্যমান ব্যবহারকারী হিসেবে পাসওয়ার্ড ভুলে গেলে অথবা নতুন রেজিস্ট্রেশনের ক্ষেত্রে আপনার মোবাইল নম্বরটি প্রদান করুন। সিস্টেম থেকে আপনার প্রদানকৃত নম্বরে এসএমএস এ নতুন পিন চলে যাবে। 
+                </div>
+                <form [formGroup]="regForm" (ngSubmit)="regFormSubmit()" novalidate>    
+                <p>
+                    <mat-form-field appearance="outline" class="mobile-full-width">
+                        <mat-label>মোবাইল নম্বর</mat-label>
+                        <input matInput 
+                            type="tel" 
+                            name="regPhone"
+                            [formControl]="regmobFormControl" 
+                            placeholder="উদাহরণঃ ০১৯১৩৩১১২২২">
+                        <mat-error *ngIf="regmobFormControl.hasError('pattern') && !regmobFormControl.hasError('required')">
+                            অনুগ্রহ করে সঠিক মোবাইল নম্বরটি দিন
+                        </mat-error>
+                        <mat-error *ngIf="regmobFormControl.hasError('required')">
+                            মোবাইল নম্বর <strong>আবশ্যক</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button type="submit">জমা দিন</button>
+                </p>
+                </form>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</fieldset>  

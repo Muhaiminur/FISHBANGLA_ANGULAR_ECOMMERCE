@@ -1,0 +1,33 @@
+.rating-list li {
+  float: left;
+  color: #ddd;
+
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li, .rating-list li.selected {
+  color: #ff0e0e;
+}
+
+.rating-list {
+  display: inline;
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.horizontally-scrolled-items {
+  display: flex;
+  width:90vw;
+  overflow-x: scroll;
+  white-space: nowrap; scroll-behavior: smooth;
+}
+.item {
+  min-width: 300px;
+  flex-grow: 1;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}

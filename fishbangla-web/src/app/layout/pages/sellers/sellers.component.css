@@ -1,0 +1,41 @@
+img {
+    border-radius: 50%;
+    vertical-align:middle;
+  }
+
+   divimage{
+    max-width: 25%;
+    float: left;
+  }
+  #leftbox { 
+    float:left;
+    width:25%; 
+    height:280px; 
+} 
+#middlebox{ 
+    float:left;
+    width:75%; 
+    height:280px; 
+} 
+#rightbox{ 
+    float:right; 
+    background:blue; 
+    width:25%; 
+    height:280px; 
+}
+
+.rating-list li {
+  float: right;
+  color: #ddd;
+
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li, .rating-list li.selected {
+  color: #ff0e0e;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+}

@@ -1,0 +1,38 @@
+<fieldset>
+    <p class="container" style="color:#ff0e0e;font-size:22px;">বিক্রেতার বিবরন</p>
+    <mat-divider style="margin: 25px;"></mat-divider>
+    <div class="container">
+        <img *ngIf="seller_details?.userImage.length!==0" [src]="seller_details?.userImage"
+            [alt]="seller_details?.userFullName" width="150" height="150" align="center">
+        <img *ngIf="seller_details?.userImage.length==0" src="../../assets/images/red-logo.svg"
+            [alt]="seller_details?.userFullName" width="150" height="150" align="center">
+    </div>
+    <p class="container" style="color:#222222;font-size:18px;">{{seller_details?.userFullName| uppercase}}</p>
+    <p class="container" style="color:#222222;font-size:16px;">{{seller_details?.userEmail}}</p>
+    <p class="container" style="color:#222222;font-size:16px;">{{seller_details?.userPhoneNo}}</p>
+    <div class="container">
+        <button *ngIf="seller_details?.beingFollowed==='no' && same_user==false" mat-raised-button color="warn"
+            (click)=user_follow()>অনুসরণ
+            করুন</button>
+        <button *ngIf="seller_details?.beingFollowed==='yes' && same_user==false" mat-raised-button color="primary"
+            (click)=user_unfollow()>অনুসরণ
+            বাতিল</button>
+    </div>
+    <div class="container">
+        <div class="col-sm-12">
+            <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                <li [ngClass]="{'selected': (star <= seller_details?.avgRating)}">
+                    <i class="fa fa-star"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="container" style="color:#b7b7b7;font-size:16px;">বিক্রেতার আরো পণ্য</p>
+    <mat-divider></mat-divider>
+    <div class="container" *ngFor=" let product of suggestion_list; let i = index;">
+        <app-fishproduct [productdata]="product"></app-fishproduct>
+    </div>
+</fieldset>
+<!-- <p>Seleceted Seller Id {{seller_id}}</p>
+<pre>{{ response | json }}</pre>
+<h2 *ngIf="seller_details!==null">{{seller_details?.userFullName}}</h2> -->

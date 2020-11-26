@@ -1,0 +1,66 @@
+<form #sellForm="ngForm">
+    <fieldset>
+        <div style="text-align:center;">
+            <button mat-raised-button
+                style="background-color: #339f2b;color: white; text-decoration-color: ivory;font-size:22px;" (click)="new_product()">পণ্য যোগ
+                করুন</button>
+            <mat-divider style="margin-top: 10px;margin-bottom: 10px;"></mat-divider>
+            <div *ngFor=" let product of own_list" style="width: 90%;margin-left:auto;margin-right:auto;">
+                <mat-card style="margin-bottom: 20px;">
+                    <fieldset>
+                        <div>
+                            <div>
+                                <img *ngIf="product?.productPicture.length!==0" [src]="product?.productPicture"
+                                    [alt]="product?.productName" width="150" height="150" align="center">
+                                <img *ngIf="product?.productPicture.length==0" src="../../assets/images/red-logo.svg"
+                                    [alt]="product?.productName" width="150" height="150" align="center">
+                            </div>
+                            <mat-divider></mat-divider>
+
+
+                            <div style="margin-left: 10px;margin-right: 10px; margin-top: 10px;">
+                                <div id="leftbox">
+                                    <p style="color:#222222;font-size:22px;">{{"পণ্যের নাম : "+product?.productName}}
+                                    </p>
+                                    <p style="color:#ff0e0e;font-size:18px;">
+                                        {{"পণ্যের দাম : "+product?.price+" টাকা"+" / "}}{{product?.unitSize+" "+ unit_check(product?.unitType)}}
+                                    </p>
+                                    <p style="color:#b7b7b7;font-size:16px;">
+                                        {{"সর্বনিম্ম ক্রয় : "+product?.minUnitQty +" ইউনিট"}}
+                                    </p>
+                                    <p style="color:#339f2b;font-size:16px;">{{"বিক্রেতা : "+product?.userFullName}}</p>
+                                </div>
+                                <div id="rightbox">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul class="list-inline rating-list" *ngFor="let star of stars"
+                                                style="display: inline">
+                                                <li [ngClass]="{'selected': (star <= product.productRating)}">
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div style="margin-left: 10px;margin-right: 10px;">
+                            <div id="leftbox">
+                                <p style="color:#222222;font-size:16px;">প্রশাসক অনুমোদন</p>
+                                <p style="color:#222222;font-size:16px;">সক্রিয়</p>
+                            </div>
+                            <div id="rightbox" style="text-align: end;">
+                                <p [ngClass]="product?.productStatus">{{product_status(product?.productStatus)}}
+                                </p>
+                                <mat-slide-toggle color="warn" [checked]="product_active_check(product?.productToken)" (change)="product_active_change($event,product?.productId)"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </fieldset>
+                </mat-card>
+            </div>
+        </div>
+    </fieldset>
+</form>

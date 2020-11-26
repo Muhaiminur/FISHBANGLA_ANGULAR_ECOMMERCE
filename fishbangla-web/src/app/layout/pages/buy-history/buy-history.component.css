@@ -1,0 +1,44 @@
+#leftbox { 
+    float:left;
+    width:50%; 
+} 
+#rightbox{ 
+    float: right;;
+    width:50%; 
+}
+table {
+    width: 100%;
+  }
+
+
+.ACCEPTED {
+    color: #ff8800;
+    font-size:18px;
+    text-align: end;
+}
+.CANCELLED {
+    color: #ff0e0e;
+    font-size:18px;
+    text-align: end;
+}
+.PENDING {
+    color: #ffbb33;
+    font-size:18px;
+    text-align: end;
+}
+.PROCESSED{
+    color: #ff8800;
+    font-size:18px;
+    text-align: end;
+}
+.ON_WAY {
+    color: #00ddff;
+    font-size:18px;
+    text-align: end;
+}
+  
+.DELIVERED {
+    color: #339f2b;
+    font-size:18px;
+    text-align: end;
+}

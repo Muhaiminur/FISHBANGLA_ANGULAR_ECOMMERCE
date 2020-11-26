@@ -1,0 +1,49 @@
+<h1 mat-dialog-title style="color:#ff0e0e;padding: 5px;text-align: center;">পণ্য ফিল্টার করুন</h1>
+<mat-divider style="margin-bottom: 10px;"></mat-divider>
+<div mat-dialog-content>
+    <!-- this is for dropdown for select fish name-->
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-select [formControl]="productMenuId_warning" [(value)]="data.productId" placeholder="পণ্য নির্বাচন করুন"
+            required>
+            <mat-option *ngFor=" let product of product_name" [value]="product.productMenuId">
+                {{product.productName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!-- this is for dropdown for division -->
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-select [formControl]="productMenuId_warning" [(value)]="data.divId" placeholder="বিভাগ নির্বাচন করুন"
+            required>
+            <mat-option *ngFor=" let divi of div_list" [value]="divi.divisionId">
+                {{divi.divisionName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div style="margin: 5px;padding: 5px;">
+        <div style="width: 30%;float:left;text-align: center;">
+            <p style="columns: #000000;;font-size:16px;margin-top: 10px;">গড় ওজন(গ্রাম)</p>
+        </div>
+        <div style="width: 70%;float:left;text-align: end;">
+            <mat-slider style="width: 100%;" color="warn" [max]="2000" [min]="10" [thumbLabel]="true"
+                [(ngModel)]="data.avg_weight">
+            </mat-slider>
+        </div>
+    </div>
+    <br>
+    <div style="margin: 5px;padding: 5px;">
+        <div style="width: 30%;float:left;text-align: center;">
+            <p style="columns: #000000;;font-size:16px;margin-top: 10px;">দামের পরিসর(টাকা)</p>
+        </div>
+        <div style="width: 70%;float:left;text-align: end;">
+            <mat-slider style="width: 100%; " color="warn" [max]="5000" [min]="10" [thumbLabel]="true"
+                [(ngModel)]="data.price">
+            </mat-slider>
+        </div>
+    </div>
+    <br>
+</div>
+<mat-divider style="margin-top: 10px;"></mat-divider>
+<div mat-dialog-actions style="text-align: end;" align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onNoClick()">না</button>
+    <button mat-raised-button color="warn" cdkFocusInitial [mat-dialog-close]="data">ফিল্টার</button>
+</div>

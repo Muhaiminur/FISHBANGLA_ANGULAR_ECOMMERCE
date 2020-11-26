@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+/*
+  button {
+    display: table-cell;
+    margin-right: 8px;
+} */
+
+#leftbox { 
+  float:left;  
+  width:5%; 
+  
+} 
+#middlebox{ 
+  float:left;  
+  width:50%; 
+} 
+#rightbox{ 
+  float:right; 
+  width:5%; 
+}

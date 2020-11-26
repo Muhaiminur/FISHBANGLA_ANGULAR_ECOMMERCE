@@ -1,0 +1,99 @@
+<!-- Under Construction by Sujan -->
+<fieldset>
+    <div class="block">
+        <div class="circle">
+            <img *ngIf="profile_details?.userFullName.length!==0" [src]="profile_details?.userImage"
+                [alt]="profile_details?.userFullName">
+            <img *ngIf="profile_details?.userFullName.length==0" src="../../assets/images/red-logo.svg"
+                [alt]="profile_details?.userFullName">
+        </div>
+    </div>
+    <div class="block">
+        <div class="rating">আপনার রেটিং</div>
+    </div>
+    <div class="block">
+        <div class="star">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                        <li [ngClass]="{'selected': (star <= profile_details?.avgRating)}">
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div style="text-align: center; margin: 2% 0 2% 0;">
+        <div>{{profile_details?.userFullName}}</div>
+        <div>{{profile_details?.userPhoneNo}}</div>
+        <div>{{profile_details?.userEmail}}</div>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div class="table">
+        <div class="row">
+            <div class="cell1">
+                <button mat-button area-label="address" routerLink="/address">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>ঠিকানা
+                </button>
+            </div>
+            <div class="cell2">
+                <button mat-button area-label="buy-history" routerLink="/buy-history">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>ক্রয় ইতিহাস
+                </button>
+            </div>
+            <div class="cell3">
+                <button mat-button area-label="buy-history" routerLink="/sell-history">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>বিক্রি ইতিহাস
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell1">
+                <button mat-button area-label="buy-history" routerLink="/referral">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>রেফারেল
+                </button>
+            </div>
+            <div class="cell2">
+                <button mat-button area-label="forgot-pin" routerLink="/forgot-pin">
+                    <mat-icon>vpn_key</mat-icon>
+                    <br>পিন পরিবর্তন
+                </button>
+            </div>
+            <div class="cell3">
+                <button mat-button area-label="favourite" routerLink="/favourite">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>পছন্দের তালিকা
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell1">
+                <button mat-button area-label="sellable-products" routerLink="/sellable-products">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>বিক্রয়যোগ্য পণ্য
+                </button>
+            </div>
+            <div class="cell2">
+                <button mat-button area-label="notification" routerLink="/notification">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>নোটিফিকেশন
+                </button>
+            </div>
+            <div class="cell3">
+                <button mat-button area-label="logout" routerLink="/logout">
+                    <mat-icon svgIcon="buy-history"></mat-icon>
+                    <br>লগ আউট
+                </button>
+            </div>
+        </div>
+    </div>
+
+</fieldset>

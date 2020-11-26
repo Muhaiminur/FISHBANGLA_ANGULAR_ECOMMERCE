@@ -1,0 +1,93 @@
+<fieldset>
+    <app-banner></app-banner>
+    <mat-divider style="margin-top: 10px;"></mat-divider>
+    <p style="color:#ff0e0e;font-size:22px;margin: 10px; text-align: center;">মাছ খুঁজছেন?</p>
+    <drag-scroll
+        style="display: flex;text-align: center;width:90vw;overflow-x: scroll;white-space: nowrap; scroll-behavior: smooth;">
+        <div drag-scroll-item *ngFor=" let menu of menu_list" style="display: inline-block;margin-right: 10px;"
+            (click)="fish_menu(menu)">
+            <div style="position: relative;width: 200px;height: 200px;overflow: hidden;color: #fff;border-radius: 10px">
+                <img *ngIf="menu?.appMenuPicture.length!==0" [src]="menu?.appMenuPicture" [alt]="menu?.appMenuTitle"
+                    width="100%" height="100%">
+                <img *ngIf="menu?.appMenuPicture.length==0" src="../../assets/images/red-logo.svg"
+                    [alt]="menu?.appMenuTitle" width="100%" height="100%">
+                <div style="position: absolute;top: 50%;left: 50%;padding: 5px;transform: translate(-50%, -50%);">
+                    <p style="color:#ffffff;font-size:22px;white-space: initial;">
+                        {{menu?.appMenuTitle}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </drag-scroll>
+    <mat-divider style="margin-top: 10px;"></mat-divider>
+    <div style="margin: 5px;padding: 10px;">
+        <div style="width: 50%;float:left;text-align: center;">
+            <button mat-raised-button style="background-color: #339f2b; color: #ffffff;" (click)="fish_auction()">মাছের
+                নিলাম</button>
+        </div>
+        <div style="width: 50%;float:left;text-align: center;">
+            <button mat-raised-button style="background-color: #339f2b; color: #ffffff;" (click)="fish_request()">মাছের
+                অনুরোধ</button>
+        </div>
+    </div>
+    <br>
+    <mat-divider style="margin-top: 10px;"></mat-divider>
+    <div *ngFor=" let tag of tag_list">
+        <div>
+            <p style="color:#339f2b;font-size:22px;margin-top: 10px;">{{tag?.tagName}}</p>
+            <mat-divider style="margin-bottom: 10px;"></mat-divider>
+            <drag-scroll class="horizontally-scrolled-items">
+                <mat-card *ngFor=" let tag_product of tag?.tagData" (click)="product_details(tag_product?.productId)"
+                    class="item">
+                    <div
+                        style="position: relative;width: 300px;height: 200px;overflow: hidden;color: #fff;border-radius: 10px">
+                        <img *ngIf="tag_product?.productPicture.length!==0" [src]="tag_product?.productPicture"
+                            [alt]="tag_product?.productName" width="100%" height="200px" align="center">
+                        <img *ngIf="tag_product?.productPicture.length==0" src="../../assets/images/red-logo.svg"
+                            [alt]="tag_product?.productName" width="100%" height="200px" align="center">
+                        <div
+                            style="position: absolute;background: rgba(0,0,0,0.6); width: 100%; bottom: 0px;padding: 5px;">
+                            <p style="color:#ffffff;font-size:22px;">
+                                {{"পণ্যের নাম : "+tag_product?.productName}}
+                            </p>
+                            <p style="color:#ff0e0e;font-size:18px;">
+                                {{"পণ্যের দাম : "+tag_product?.price+" টাকা"+" / "}}{{tag_product?.unitSize+" "+  unit_check(tag_product?.unitType)}}
+                            </p>
+                            <p style="color:#b7b7b7;font-size:16px;">
+                                {{"সর্বনিম্ম ক্রয় : "+tag_product?.minUnitQty +" ইউনিট"}}</p>
+                        </div>
+                        <div style="position: absolute; top: 0px;padding: 5px; right: 0px;"
+                            (click)="product_add(tag_product,$event)">
+                            <img *ngIf=" !check_cart(tag_product?.productId)" class="center"
+                                src="../../assets/icons/cartadd.svg" alt="add to cart" width="30" height="30"
+                                align="center">
+                            <img *ngIf="check_cart(tag_product?.productId)" class="center"
+                                src="../../assets/icons/ic_cart_added.svg" alt="add to cart" width="30" height="30"
+                                align="center">
+                        </div>
+                        <br>
+                    </div>
+                    <mat-divider style="margin-top: 10px;"></mat-divider>
+                    <div>
+                        <p style="color:#339f2b;font-size:18px;margin-top: 15px;">{{tag_product?.userFullName}}
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline">
+                                    <li [ngClass]="{'selected': (star <= tag_product.productRating)}">
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </drag-scroll>
+        </div>
+    </div>
+    <mat-card *ngIf="nodata">
+        <div style="text-align:center;">
+            <h2>কোনো পণ্য খুঁজে পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+</fieldset>

@@ -1,0 +1,83 @@
+<div class="center">
+    <div >
+        <img src="../../assets/images/address_Image.png" class="image">
+    </div>
+
+    <fieldset class="add-address-form">
+        <!-- <form class="add-address-form"> -->
+          <mat-form-field class="add-address-full-width">
+            <mat-label>বাসা নং : </mat-label>
+            <input [(ngModel)]="buildingNo" matInput placeholder="বাসা নং :" value="">
+          </mat-form-field>        
+          <mat-form-field class="add-address-full-width">
+              <mat-label>এপার্টমেন্ট নং/ফ্লোর নং : </mat-label>
+              <input [(ngModel)]="flatNo" matInput placeholder="এপার্টমেন্ট নং/ফ্লোর নং :" value="">
+           </mat-form-field>   
+        
+            <mat-form-field class="add-address-full-width">
+                <mat-label>রাস্তা / ব্লক/ সেক্ট্রর নং :</mat-label>
+                <input [(ngModel)] = "roadNo" matInput placeholder="রাস্তা / ব্লক/ সেক্ট্রর নং :" value="">
+            </mat-form-field>
+        
+            <mat-form-field class="add-address-full-width">
+                <mat-label>এলাকা : </mat-label>
+                <input [(ngModel)] = "userAddress"  matInput placeholder="এলাকা :" value="">
+              </mat-form-field>
+          
+              <mat-form-field class="add-address-full-width">
+                  <mat-label>ক্রেতা /বিক্রেতার নাম: </mat-label>
+                  <input [(ngModel)] = "receiverName" matInput placeholder="ক্রেতা /বিক্রেতার নাম: " value="">
+              </mat-form-field>
+          
+              <mat-form-field class="add-address-full-width">
+                  <mat-label>মোবাইল নং :</mat-label>
+                  <input [(ngModel)] = "receiverNo" onkeyup="this.value=this.value.replace(/[^\d]/,'')"  matInput placeholder="মোবাইল নং:" value="" required>
+              </mat-form-field>
+
+              <mat-form-field class="add-address-full-width">
+                <mat-label>বিভাগ নির্বাচন করুন</mat-label>
+                <mat-select [(value)]="selectedDivId" (selectionChange)="divison_select($event)" >
+                  <mat-option *ngFor = "let div of divList?.division ; let i = index;" [value]="div.divisionId" >
+                    {{div.divisionName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="add-address-full-width">
+                <mat-label>জেলা নির্বাচন করুন</mat-label>
+                <mat-select [(value)]="selectedDistId" (selectionChange)="district_select($event)" >
+                  <mat-option *ngFor = "let dist of selectedDistList ; let i = index;" [value]="dist.districtId" >
+                    {{dist.districtName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="add-address-full-width">
+                <mat-label>উপজেলা নির্বাচন করুন</mat-label>
+                <mat-select [(value)]="selectedUpaId" >
+                  <mat-option *ngFor = "let ps of selectedUpaList; let i = index;" [value]="ps.upazillaId">
+                    {{ps.upazillaName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>  
+              
+              <mat-card class="add-address-full-width"> 
+                <mat-radio-group aria-label="" [(ngModel)]="isPrimary">
+                    <mat-radio-button value="YES" style="margin-right:5px;" >বাসার ঠিকানা </mat-radio-button>
+                    <mat-radio-button value="NO">অন্যান্য ঠিকানা</mat-radio-button>
+                </mat-radio-group>
+                
+            </mat-card>
+        <!-- </form> -->
+    </fieldset>
+
+    <fieldset style="text-align: center;">
+        <button mat-raised-button color = "warn" style="text-align: center;" (click) = "addAddressButtonClicked()" >ঠিকানা যোগ করুন </button>
+    </fieldset>
+
+    
+    
+</div>
+
+<!-- selected upazillaId is {{selectedUpaId}} -->
+

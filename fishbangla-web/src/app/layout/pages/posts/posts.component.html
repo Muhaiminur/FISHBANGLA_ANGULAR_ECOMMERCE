@@ -1,0 +1,16 @@
+<fieldset>
+    <div class="card" *ngFor=" let product of product_list">
+        <app-fishproduct [productdata]="product"></app-fishproduct>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card *ngIf="nodata_all">
+        <div style="text-align:center;">
+            <h2>কোনো পণ্য খুঁজে পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+    <mat-card *ngIf=" !nodata || nodata_all">
+        <div style="text-align:center;">
+            <button mat-stroked-button color="warn" (click)="load_more()">Load More Product</button>
+        </div>
+    </mat-card>
+</fieldset>

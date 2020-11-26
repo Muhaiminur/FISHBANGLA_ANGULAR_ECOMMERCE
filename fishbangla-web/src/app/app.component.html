@@ -1,0 +1,91 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer fixedInViewport="true" 
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" 
+    [opened]="!(isHandset$ | async)">
+
+    <mat-nav-list>
+      <img mat-card-image src="../../assets/images/red-logo.svg" alt="Logo">
+      <mat-divider></mat-divider>
+      <a (click)="closeSideNav()" mat-list-item routerLink="/home" routerLinkActive="active">
+        <mat-icon>home</mat-icon>&nbsp;&nbsp;হোম</a>
+      <mat-divider></mat-divider>
+
+      <a (click)="closeSideNav()" mat-list-item routerLink="/posts" routerLinkActive="active">
+        <mat-icon svgIcon="posts"></mat-icon>&nbsp;&nbsp;সকল পণ্য</a>
+      <mat-divider></mat-divider>
+
+      <a *ngIf="isLogged" (click)="closeSideNav()" mat-list-item routerLink="/buy-history" routerLinkActive="active">
+        <mat-icon svgIcon="buy-history"></mat-icon>&nbsp;&nbsp;ক্রয় ইতিহাস</a>
+        <mat-divider *ngIf="isLogged"></mat-divider>
+
+      <a *ngIf="isLogged" (click)="closeSideNav()" mat-list-item routerLink="/sell" routerLinkActive="active">
+        <mat-icon svgIcon="sell"></mat-icon>&nbsp;&nbsp;বিক্রি করুন</a>
+        <mat-divider *ngIf="isLogged"></mat-divider>
+
+      <a (click)="closeSideNav()" mat-list-item routerLink="/sellers" routerLinkActive="active">
+        <mat-icon svgIcon="seller"></mat-icon>&nbsp;&nbsp;বিক্রিতার তালিকা</a>
+      <mat-divider></mat-divider>
+
+      <a (click)="closeSideNav()" mat-list-item routerLink="/request" routerLinkActive="active">
+        <mat-icon svgIcon="request"></mat-icon>&nbsp;&nbsp;অনুরোধ</a>
+      <mat-divider></mat-divider>
+
+      <a (click)="closeSideNav()" mat-list-item routerLink="/contact" routerLinkActive="active">
+        <mat-icon svgIcon="contact"></mat-icon>&nbsp;&nbsp;যোগাযোগ</a>
+      <mat-divider></mat-divider>
+
+      <a *ngIf="!isLogged" (click)="closeSideNav()" mat-list-item routerLink="/login" routerLinkActive="active">
+        <mat-icon svgIcon="login"></mat-icon>&nbsp;&nbsp;লগইন/রেজিস্টার</a>
+      <mat-divider *ngIf="!isLogged"></mat-divider>
+      
+      <a *ngIf="isLogged" (click)="this.authService.logout()" mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon svgIcon="login"></mat-icon>&nbsp;&nbsp;লগ আউট</a>
+      <mat-divider *ngIf="isLogged"></mat-divider>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="warn" class="toolbar">
+      <button 
+        type="button" 
+        aria-label="Toggle sidenav" 
+        mat-icon-button (click)="drawer.toggle()" 
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>ফিশবাংলা</span>
+      <span class="sidenav-filler"></span>
+      <span align="right">
+        <button
+          mat-icon-button aria-label="search"
+          routerLink="/search">
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button aria-label="cart"
+          routerLink="/cart">
+          <mat-icon [matBadge] ="this.badge" matBadgePosition="above after" matBadgeColor="normal">shopping_cart</mat-icon>
+        </button>
+
+        <button *ngIf="isLogged" 
+          mat-icon-button area-label="profile"
+          routerLink="/profile">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        
+      </span>
+    </mat-toolbar> 
+
+
+    <div class="content">
+      <app-loader></app-loader>
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>  
+
+</mat-sidenav-container>

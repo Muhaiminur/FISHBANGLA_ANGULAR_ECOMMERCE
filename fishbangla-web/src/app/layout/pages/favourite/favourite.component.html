@@ -1,0 +1,14 @@
+<fieldset style="text-align: center;">
+    <p style="color:#ff0e0e;font-size:26px; margin-top: 10px;">পছন্দের তালিকা</p>
+    <mat-divider></mat-divider>
+    <div *ngFor=" let product of fvrt_list; let i = index;"
+        style="margin-bottom: 10px;margin-left: 20px;margin-right: 20px;">
+        <app-fishproduct [productdata]="product"></app-fishproduct>
+    </div>
+    <!-- show if no product found -->
+    <mat-card *ngIf="nodata">
+        <div style="text-align:center;">
+            <h2>কোনো তথ্য পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+</fieldset>

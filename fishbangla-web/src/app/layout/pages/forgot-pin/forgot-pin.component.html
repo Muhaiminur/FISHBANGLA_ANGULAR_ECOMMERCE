@@ -1,0 +1,67 @@
+<fieldset>
+    <div class="block">
+        <div>পিন পরিবর্তনের জন্য আপনার বর্তমান ও নতুন পিনটি লিখুন</div>
+    </div>
+    <div class="block">
+        <form class="fp-form" [formGroup]="fpForm" (ngSubmit)="fpFormSubmit()" novalidate> 
+        <p> 
+            <mat-form-field appearance="outline" class="fp-full-width">
+            <mat-label>বর্তমান পিন</mat-label>
+            <input matInput 
+                [type]="hideOld ? 'password' : 'text'" 
+                name="userOldPin"
+                [formControl]="pinOldFormControl" 
+                placeholder="উদাহরণঃ ১১২২২">
+                <button mat-icon-button matSuffix 
+                    type="button"
+                    (click)="hideOld = !hideOld" 
+                    [attr.aria-label]="'Hide password'" 
+                    [attr.aria-pressed]="hideOld">
+                    <mat-icon>{{hideOld ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint>বর্তমানে ব্যবহৃত পাঁচ ডিজিটের পিন</mat-hint>
+                <mat-error *ngIf="pinOldFormControl.hasError('required')">
+                    বর্তমান পিন নম্বর <strong>আবশ্যক</strong>
+                </mat-error>
+                <mat-error *ngIf="pinOldFormControl.hasError('pattern')">
+                    পাঁচ ডিজিট সংখ্যা পিন হিসেবে ব্যবহার করুন
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" class="fp-full-width">
+                <mat-label>পাঁচ ডিজিটের নতুন পিন</mat-label>
+                <input matInput 
+                size="5"
+                [type]="hideNew ? 'password' : 'text'"  
+                name="userNewPin"
+                [formControl]="pinNewFormControl" 
+                placeholder="উদাহরণঃ ১১২২২">
+                <button mat-icon-button matSuffix 
+                    type="button"
+                    (click)="hideNew = !hideNew" 
+                    [attr.aria-label]="'Hide password'" 
+                    [attr.aria-pressed]="hideNew">
+                    <mat-icon>{{hideNew ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint>নতুন পিন পাঁচ ডিজিটের হতে হবে</mat-hint>
+                <mat-error *ngIf="pinNewFormControl.hasError('required')">
+                    নতুন পিন নম্বর <strong>আবশ্যক</strong>
+                </mat-error>
+                <mat-error *ngIf="pinOldFormControl.hasError('pattern')">
+                    পাঁচ ডিজিট সংখ্যা পিন হিসেবে ব্যবহার করুন
+                </mat-error>
+                <mat-error *ngIf="pinOldFormControl.hasError('maxLength')">
+                    পিন পাঁচ ডিজিটের বেশি গ্রহণযোগ্য নয়
+                </mat-error>
+                <mat-error *ngIf="pinOldFormControl.hasError('minLength')">
+                    পিন পাঁচ ডিজিটের কম গ্রহণযোগ্য নয়
+                </mat-error>
+            </mat-form-field>
+        </p>
+          <p align="center">
+            <button mat-raised-button type="submit">জমা দিন</button>
+        </p>
+      </form>
+    </div>
+</fieldset>

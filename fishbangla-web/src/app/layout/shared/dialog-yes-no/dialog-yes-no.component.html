@@ -1,0 +1,12 @@
+<p style="color:#ffffff;font-size:22px;background-color:#339f2b;padding: 5px; padding-left: 15px;padding-right: 15px;"
+    mat-dialog-title>
+    {{data.textTitle}}</p>
+<mat-divider style="margin-top: 10px;"></mat-divider>
+<div mat-dialog-content>
+    <p class="container" style="color:#222222;font-size:18px;">{{data.textBody }}</p>
+</div>
+<mat-divider style="margin-top: 10px;"></mat-divider>
+<div mat-dialog-actions style="text-align: end;" align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onNoClick()">{{ data.textCancel }}</button>
+    <button mat-raised-button color="warn" cdkFocusInitial (click)="onyesClick()">{{ data.textConfirm }}</button>
+</div>

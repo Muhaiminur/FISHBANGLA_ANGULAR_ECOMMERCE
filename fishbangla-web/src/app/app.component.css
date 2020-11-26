@@ -1,0 +1,11 @@
+.sidenav-container {
+  height: 100vh; 
+}
+
+.sidenav {
+  width: 230px;
+}
+
+.sidenav-filler{
+  flex: 1 1 auto;
+}

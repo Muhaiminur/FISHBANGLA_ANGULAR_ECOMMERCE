@@ -1,0 +1,89 @@
+<fieldset class="center">
+    <div *ngFor=" let buy_history of buy_list" style="margin-bottom: 10px;margin-left: 20px;margin-right: 20px;">
+        <mat-accordion multi>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <p style="color:#222222;font-size:22px;">{{"অর্ডার নং : "+buy_history?.transactionId}}</p>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <!-- <p style="color:#ff0e0e;font-size:18px;text-align: end;">{{buy_history?.orderStatus}}</p> -->
+                        <p [ngClass]="buy_history?.orderStatus">{{convert_order(buy_history?.orderStatus)}}</p>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                    <div id="leftbox">
+                        <p style="color:#b7b7b7;font-size:16px;">{{"সময় : "+buy_history?.oderDate}}</p>
+                        <p style="color:#222222;font-size:18px;">
+                            {{"সর্বমোট : "+buy_history?.totalAfterDiscount}}
+                        </p>
+                        <p style="color:#222222;font-size:18px;text-emphasis: initial;">পণ্যের বিবরন : </p>
+                    </div>
+                    <div id="rightbox">
+                    </div>
+                </div>
+                <table mat-table [dataSource]="buy_history?.products" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> পণ্যের নাম </th>
+                        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> ইউনিট </th>
+                        <td mat-cell *matCellDef="let element"> {{element.unitSize}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> দাম(টাকা) </th>
+                        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-divider style="margin-top: 20px;"></mat-divider>
+                <div style="margin-top: 10px;">
+                    <p style="color:#b7b7b7;font-size:16px;text-align: end;">
+                        {{"বরফ পাটা : "+buy_history?.icePrice +" ৳"}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: end;">
+                        {{"সার্ভিস চার্জ : "+buy_history?.serviceCharge +" ৳"}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: end;">
+                        {{"ডেলিভারি চার্জ : "+buy_history?.deliveryCharge +" ৳"}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: end;">
+                        {{"ভ্যাট চার্জ : "+buy_history?.productVat +" ৳"}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: end;">
+                        {{"ডিসকাউন্ট চার্জ : "+buy_history?.discountAmount +" ৳"}}</p>
+                    <p style="columns: #000000;;font-size:16px;text-align: end;">
+                        {{"মোট : "+buy_history?.totalAmount +" ৳"}}</p>
+                    <p style="color:#339f2b;font-size:18px;text-align: end;">
+                        {{"সর্বমোট : "+buy_history?.totalAfterDiscount +" ৳"}}</p>
+                </div>
+                <mat-divider style="margin-top: 20px;"></mat-divider>
+                <div style="margin-top: 10px;">
+                    <p style="color:#000000;font-size:18px;text-align: start;">ক্রেতার ঠিকানা : </p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: start;">{{buy_history?.userFullName}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: start;">{{buy_history?.userAddress}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: start;">
+                        {{buy_history?.userVillage+", "+buy_history?.nearbyLandmark}}</p>
+                    <p style="color:#b7b7b7;font-size:16px;text-align: start;">
+                        {{buy_history?.upazillaName+" | "+buy_history?.districtName+" | "+buy_history?.divisionName}}
+                    </p>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+    </div>
+    <!-- show if no product found -->
+    <mat-card *ngIf="nodata">
+        <div style="text-align:center;">
+            <h2>কোনো তথ্য পাওয়া যাই নি</h2>
+        </div>
+    </mat-card>
+</fieldset>

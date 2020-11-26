@@ -1,0 +1,14 @@
+<!-- <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of slidesStore">
+        <ng-template carouselSlide [id]="slide.bannerId">
+        <img [src]="slide.bannerImageURL" [alt]="slide.bannerTitle" [title]="slide.bannerTitle">
+        </ng-template>
+    </ng-container>
+</owl-carousel-o> -->
+<mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="warn" maxWidth="auto" proportion="25"
+    slides="5" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true" [useMouseWheel]="true"
+    orientation="ltr">
+    <mat-carousel-slide *ngFor="let slide of slidesStore" [image]="slide.bannerImageURL" overlayColor="#00000040"
+        [hideOverlay]="false">
+    </mat-carousel-slide>
+</mat-carousel>

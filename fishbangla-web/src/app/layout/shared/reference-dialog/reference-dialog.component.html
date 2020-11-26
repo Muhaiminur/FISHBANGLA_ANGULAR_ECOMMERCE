@@ -1,0 +1,16 @@
+<h1 mat-dialog-title style="color:#339f2b;margin-top: 10px;">বিক্রি করার জন্য আপনার রেফারেল নম্বর থাকতে হবে। আপনি অন্য
+    বিক্রেতার থেকে রেফারেল নম্বরটি সংগ্রহ করুন।</h1>
+<mat-divider style="margin-top: 10px;"></mat-divider>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>রেফারেল নম্বর লিখুন</mat-label>
+        <input matInput onkeyup="this.value=this.value.replace(/[^\d]/,'')" [(ngModel)]="ref_num" required>
+        <mat-error *ngIf="true">রেফারেল নম্বর পূরণ করুন</mat-error>
+    </mat-form-field>
+</div>
+<mat-divider style="margin-top: 10px;"></mat-divider>
+<div mat-dialog-actions style="text-align: end;" align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onNoClick()">না</button>
+    <button mat-raised-button color="warn" cdkFocusInitial (click)="onyesClick()">জমা দিন</button>
+    <!-- <button mat-button [mat-dialog-close]="ref_num" cdkFocusInitial>Ok</button> -->
+</div>

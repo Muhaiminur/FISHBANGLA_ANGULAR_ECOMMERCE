@@ -1,0 +1,48 @@
+<fieldset class="center">
+    <mat-card (click)="product_details(product?.productId)">
+        <fieldset>
+            <div>
+                <div
+                    style="position: relative;width: 50%;height: 200px;overflow: hidden;color: #fff;border-radius: 10px;display: block;margin-left: auto;margin-right: auto;">
+                    <img *ngIf="product?.productPicture.length!==0" [src]="product?.productPicture"
+                        [alt]="product?.productName" width="100%" height="100%" align="center">
+                    <img *ngIf="product?.productPicture.length==0" src="../../assets/images/red-logo.svg"
+                        [alt]="product?.productName" width="100%" height="100%" align="center">
+                    <div *ngIf="wholesale_check(product?.productPostType)"
+                        style="position: absolute; top: 0px; left: 0px;">
+                        <img src="../../assets/images/ic_wholesale.png" alt="Wholesale Product" align="center">
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div style="margin: 10px;">
+                    <div id="leftbox">
+                        <p style="color:#222222;font-size:22px;">{{"পণ্যের নাম : "+product?.productName}}</p>
+                        <p style="color:#ff0e0e;font-size:18px;">
+                            {{"পণ্যের দাম : "+product?.price+" টাকা"+" / "}}{{product?.unitSize+" "+ unit_name}}</p>
+                        <p style="color:#b7b7b7;font-size:16px;">{{"সর্বনিম্ম ক্রয় : "+product?.minUnitQty +" ইউনিট"}}
+                        </p>
+                        <p style="color:#339f2b;font-size:16px;">{{"বিক্রেতা : "+product?.userFullName}}</p>
+                    </div>
+                    <div id="middlebox">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="list-inline rating-list" *ngFor="let star of stars"
+                                    style="display: inline-block">
+                                    <li [ngClass]="{'selected': (star <= product.productRating)}">
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container" (click)="product_add(product?.productId)">
+                            <img *ngIf="!cartadded" class="center" src="../../assets/icons/cartadd.svg"
+                                alt="add to cart" width="50" height="50" align="center">
+                            <img *ngIf="cartadded" class="center" src="../../assets/icons/ic_cart_added.svg"
+                                alt="add to cart" width="50" height="50" align="center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </mat-card>
+</fieldset>
